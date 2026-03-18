@@ -162,6 +162,81 @@ if (contactForm) {
   });
 }
 
+const select = document.querySelector(".select");
+const selected = document.querySelector(".selected");
+const optionInputs = document.querySelectorAll(".options input[type='radio']");
+const certificateCards = document.querySelectorAll(".certificate-card");
+const certificatesGrid = document.querySelector(".certificates-grid");
+
+function filterCertificates(optionId) {
+  certificateCards.forEach((card, index) => {
+    if (optionId === "all") {
+      if (index === 0) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    } else if (optionId === "option-1") {
+      if (index === 1) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    } else if (optionId === "option-2") {
+      if (index === 2) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+  certificatesGrid.style.justifyContent = "center";
+}
+
+function showAllCertificates() {
+  certificateCards.forEach((card) => {
+    card.style.display = "flex";
+  });
+  certificatesGrid.style.justifyContent = "flex-start";
+}
+
+if (select && selected) {
+  selected.addEventListener("click", (e) => {
+    e.stopPropagation();
+    select.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!select.contains(e.target)) {
+      select.classList.remove("active");
+    }
+  });
+
+  const isMobile = window.matchMedia("(max-width: 995px)").matches;
+  
+  if (isMobile) {
+    filterCertificates("all");
+  }
+
+  optionInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      select.classList.remove("active");
+      const selectedValue = input.id;
+      
+      if (selectedValue === "all") {
+        const isMobileNow = window.matchMedia("(max-width: 995px)").matches;
+        if (isMobileNow) {
+          filterCertificates("all");
+        } else {
+          showAllCertificates();
+        }
+      } else {
+        filterCertificates(selectedValue);
+      }
+    });
+  });
+}
+
 const modal = document.getElementById("cert-modal");
 const modalImg = document.getElementById("cert-modal-img");
 const closeModal = document.querySelector(".close-modal");
