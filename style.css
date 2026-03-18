@@ -284,6 +284,7 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 body::before {
   content: "";
@@ -725,6 +726,107 @@ span {
   max-width: 900px;
   margin: 0 auto;
   width: 100%;
+}
+.select {
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  transition: 300ms;
+  color: white;
+  overflow: hidden;
+  display: inline-block;
+  bottom: 89px;
+  left: 100px;
+  visibility: hidden;
+}
+
+.selected {
+  background-color: #2a2f3b;
+  padding: 5px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 100000;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  position: relative;
+  right: 0px;
+  height: 10px;
+  transform: rotate(-90deg);
+  width: 25px;
+  fill: white;
+  z-index: 100000;
+  transition: 300ms;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #2a2f3b;
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  transition: 300ms;
+}
+
+.select:hover > .options {
+  opacity: 1;
+  top: 0;
+}
+
+.select:hover > .selected .arrow {
+  transform: rotate(0deg);
+}
+
+.option {
+  border-radius: 5px;
+  padding: 5px;
+  transition: 300ms;
+  background-color: #2a2f3b;
+  width: 150px;
+  font-size: 15px;
+}
+.option:hover {
+  background-color: #323741;
+}
+
+.options input[type="radio"] {
+  display: none;
+}
+
+.options label {
+  display: inline-block;
+}
+.options label::before {
+  content: attr(data-txt);
+}
+
+.options input[type="radio"]:checked + label {
+  display: none;
+}
+
+.options input[type="radio"]#all:checked + label {
+  display: none;
+}
+
+.select:has(.options input[type="radio"]#all:checked) .selected::before {
+  content: attr(data-default);
+}
+.select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+  content: attr(data-one);
+}
+.select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+  content: attr(data-two);
+}
+.select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+  content: attr(data-three);
 }
 .timeline {
   position: relative;
@@ -1351,6 +1453,9 @@ body.light-mode .copied-toast {
   }
 }
 @media (max-width: 995px) {
+  body {
+    overflow-x: hidden;
+  }
   header {
     padding: 1rem 5%;
   }
@@ -1385,10 +1490,10 @@ body.light-mode .copied-toast {
   }
   .nav-menu {
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(110vh - 60px);
     background: var(--bg-card);
     box-shadow: none;
     flex-direction: column;
@@ -1460,6 +1565,12 @@ body.light-mode .copied-toast {
   .contact {
     padding-bottom: 180px;
   }
+  .select {
+    visibility: visible;
+    position: relative;
+    top: 20px;
+    left: 0px;
+  }
 }
 @media (max-width: 576px) {
   header {
@@ -1502,7 +1613,7 @@ body.light-mode .copied-toast {
     font-size: 1.4rem;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 397px) {
   .home .home-content h1 {
     font-size: 2.4rem;
   }
