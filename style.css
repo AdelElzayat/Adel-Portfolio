@@ -1193,6 +1193,8 @@ span {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  bottom: 20px;
 }
 .contact-card {
   background: var(--bg-card);
@@ -1630,8 +1632,8 @@ body.light-mode .copied-toast {
     justify-content: center;
     gap: 2rem;
     position: relative;
-    top: 420px;
-    right: 380px;
+    top: 430px;
+    right: 400px;
   }
   .contact-card {
     width: 100px;
@@ -1640,6 +1642,8 @@ body.light-mode .copied-toast {
     display: none;
   }
   .contact-form-container {
+    position: relative;
+    left:42px;
     width: 340px;
   }
 }

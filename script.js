@@ -287,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Email: "adelelzayat2005@gmail.com",
     GitHub: "https://github.com/AdelElzayat",
     LinkedIn: "www.linkedin.com/in/adel-elzayat",
+    "Phone Number": "+20 102 2558885",
   };
 
   let toastTimeout;
