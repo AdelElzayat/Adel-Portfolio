@@ -1624,6 +1624,24 @@ body.light-mode .copied-toast {
     position: relative;
     left: 28px;
   }
+  .contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    top: 420px;
+    right: 380px;
+  }
+  .contact-card {
+    width: 100px;
+  }
+  .contact-card h3, .contact-card p {
+    display: none;
+  }
+  .contact-form-container {
+    width: 340px;
+  }
 }
 @media (max-width: 397px) {
   .home .home-content h1 {
