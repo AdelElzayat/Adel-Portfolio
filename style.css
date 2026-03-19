@@ -1636,14 +1636,20 @@ body.light-mode .copied-toast {
     right: 400px;
   }
   .contact-card {
-    width: 100px;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
   }
   .contact-card h3, .contact-card p {
     display: none;
   }
   .contact-form-container {
     position: relative;
-    left:42px;
     width: 340px;
   }
 }
