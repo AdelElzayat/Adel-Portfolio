@@ -1622,7 +1622,7 @@ body.light-mode .copied-toast {
     width: 300px;
     height: 580px;
     position: relative;
-    left: 0px;
+    left: 24px;
   }
 }
 @media (max-width: 397px) {
