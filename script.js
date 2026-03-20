@@ -275,6 +275,22 @@ if (modal && modalImg && closeModal && certButtons) {
   });
 }
 
+const feedbackButtons = document.querySelectorAll(".feedback-btn");
+
+if (feedbackButtons.length > 0) {
+  feedbackButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const imgSrc = btn.getAttribute("data-feedback-src");
+      if (imgSrc && modal && modalImg) {
+        modalImg.src = imgSrc;
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const contactCards = document.querySelectorAll(".contact-card");
 
