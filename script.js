@@ -188,6 +188,12 @@ function filterCertificates(optionId) {
       } else {
         card.style.display = "none";
       }
+    } else if (optionId === "option-3") {
+      if (index === 3) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
     }
   });
   certificatesGrid.style.justifyContent = "center";
