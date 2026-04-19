@@ -672,6 +672,7 @@ span {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  margin-bottom: 86px;
 }
 .skills-content {
   display: grid;
@@ -733,7 +734,6 @@ span {
   position: relative;
   transition: 300ms;
   color: white;
-  overflow: hidden;
   display: inline-block;
   bottom: 89px;
   left: 100px;
@@ -776,9 +776,34 @@ span {
   transition: 300ms;
 }
 
-.select.active > .options {
-  opacity: 1;
-  top: 0;
+@media (max-width: 768px) {
+  .select {
+    overflow: visible;
+    position: relative;
+  }
+  
+  .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 160px;
+    z-index: 9999;
+    margin-top: 3px;
+  }
+}
+
+@media (min-width: 769px) {
+  .select.active > .options {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .select.active > .options {
+    opacity: 1;
+    top: 100%;
+  }
 }
 
 .select.active > .selected .arrow {
@@ -1032,6 +1057,8 @@ span {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  /* position: relative;
+  top: 86px; */
 }
 .section-header {
   text-align: center;
@@ -1057,6 +1084,8 @@ span {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
+  bottom: 120px;
 }
 .certificate-card:hover {
   transform: translateY(-10px);
