@@ -1607,6 +1607,7 @@ body.light-mode .copied-toast {
     height: 580px;
     position: relative;
     left: 210px;
+    top: 2px;
   }
 }
 @media (max-width: 576px) {
